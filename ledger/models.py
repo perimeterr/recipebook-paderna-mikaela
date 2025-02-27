@@ -2,14 +2,14 @@ from django.db import models
 
 
 class Ingredient(models.Model):
-    name = models.charField(max_length=100)
+    name = models.CharField(max_length=100)
 
     def __str__(self):
         return f'{self.name}'
     
 
 class Recipe(models.Model):
-    name = models.charField(max_length=100)
+    name = models.CharField(max_length=100)
 
     def __str__(self):
         return f'{self.name}'
