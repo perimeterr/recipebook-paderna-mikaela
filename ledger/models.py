@@ -7,6 +7,9 @@ class Ingredient(models.Model):
     def __str__(self):
         return f'{self.name}'
     
+    def get_absolute_url(self):
+        return reverse('ingredient_detail', args=[self.id])
+    
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
