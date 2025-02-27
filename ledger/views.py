@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 # Create your views here.
 def recipes(request):
     ctx = {
@@ -68,6 +69,7 @@ def recipes(request):
     }
     return render(request, 'recipe_list.html', ctx)
 
+
 def recipe1(request):
     ctx = {
         "name": "Recipe 1",
@@ -96,6 +98,7 @@ def recipe1(request):
         "link": "/recipe/1"
     }
     return render(request, 'recipe.html', ctx)
+
 
 def recipe2(request):
     ctx = {

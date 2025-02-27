@@ -8,4 +8,5 @@ urlpatterns = [
     path('recipe/2', recipe2, name='2')
 ]
 
+
 app_name = 'ledger'
