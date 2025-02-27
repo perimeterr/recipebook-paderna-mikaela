@@ -23,10 +23,7 @@ class Recipe(models.Model):
 
 
 class RecipeIngredient(models.Model):
-    quantity = models.CharField(
-        max_length=100,
-        default = '1pc'
-        )
+    quantity = models.CharField(max_length=100)
     ingredient = models.ForeignKey(
         Ingredient, 
         on_delete = models.CASCADE,
