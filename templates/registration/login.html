@@ -1,0 +1,12 @@
+{% extends 'registration/regis_base.html' %}
+
+{% block header %}Login{% endblock %}
+{% block title %}Login{% endblock %}
+{% block content %}
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Log In</button>
+  </form>
+  <a href="{% url 'password_reset' %}">Forgot your password?</a>
+{% endblock %}
