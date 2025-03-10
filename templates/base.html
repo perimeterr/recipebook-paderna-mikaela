@@ -9,6 +9,18 @@
 </head>
 <body>
     <h1>Recipe Book</h1>
+    {% if request.user.is_authenticated %}
+      <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+      </form>
+    {% else %}
+        <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Login</button>
+        </form>
+    {% endif %}
+    <h2>{% block header %}{% endblock %}</h2>
     <div id="content">
         {% block content %}
         {% endblock %}
