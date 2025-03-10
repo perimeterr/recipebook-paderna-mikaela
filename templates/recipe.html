@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}{{ name }}{% endblock %}
 
+{% block title %}{{ name }}{% endblock %}
+{% block header %}{{ name }}{% endblock %}
 {% block content %}
     <h2>{{ object.name }}</h2>
+    <p>By {{ object.author }}</p>
     <ul>
         {% for ingredient in object.ingredients.all %}
             <li>
@@ -10,4 +12,5 @@
             </li>
         {% endfor %}
     </ul>
+    <a href="/recipes/list">Go back to Recipe List</a>
 {% endblock %}
