@@ -23,6 +23,9 @@ class Recipe(models.Model):
 
     def get_absolute_url(self):
         return reverse('ledger:recipe_detail', args=[self.pk])
+    
+    def get_add_image_url(self):
+        return reverse('ledger:recipe_add_image', args=[self.pk])
 
 
 class RecipeIngredient(models.Model):
@@ -51,5 +54,4 @@ class RecipeImage(models.Model):
     )
 
     def __str__(self):
-        return self.description
-
+        return f'{self.description}'
