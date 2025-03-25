@@ -2,12 +2,9 @@
 {% load static %}
 
 {% block title %}{{ object.name }}{% endblock %}
-{% for image in object.recipe_image.all %}
-{% if image.recipe_image %}
-<img src="{{ image.recipe_image.url }}" alt="{{ image.description }}">
-{% endif %}
-{% endfor %}
 {% block header %}{{ object.name }} Details{% endblock %}
+{% block styles %}{% endblock %}
+
 {% block content %}
     <p>By {{ object.author }}</p>
     <p>Created on {{ object.created_on }} || Updated on {{ object.updated_on }}</p>
@@ -20,4 +17,11 @@
         {% endfor %}
     </ul>
     <a href="/recipes/list">Go back to Recipe List</a>
+    <h3>Images:</h3>
+    <a href="{{ object.get_add_image_url }}">Add image</a>
+{% for image in object.recipe_image.all %}
+{% if image.recipe_image %}
+<img src="{{ image.recipe_image.url }}" alt="{{ image.description }}">
+{% endif %}
+{% endfor %}
 {% endblock %}
