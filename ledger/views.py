@@ -35,4 +35,6 @@ class AddRecipeImageView(LoginRequiredMixin, CreateView):
     template_name = 'recipe_add_image.html'
 
     def get_success_url(self):
-        return reverse_lazy('ledger:recipe_detail', kwargs={ 'pk': self.object.recipe.pk })
+        return reverse_lazy('ledger:recipe_detail', 
+                            kwargs={ 'pk': self.object.recipe.pk })
+    
