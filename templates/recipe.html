@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}{{ name }}{% endblock %}
-{% block header %}{{ name }} Recipe Detail{% endblock %}
+{% block title %}{{ object.name }}{% endblock %}
+{% for image in object.recipe_image.all %}
+{% if image.recipe_image %}
+<img src="{{ image.recipe_image.url }}" alt="{{ image.description }}">
+{% endif %}
+{% endfor %}
+{% block header %}{{ object.name }} Details{% endblock %}
 {% block content %}
     <p>By {{ object.author }}</p>
+    <p>Created on {{ object.created_on }} || Updated on {{ object.updated_on }}</p>
+    <h3>Ingredients:</h3>
     <ul>
         {% for ingredient in object.ingredients.all %}
             <li>
